@@ -58,7 +58,7 @@ export function useMmap() {
 
 export function hasDynamicImports() {
   if (onDenoDeploy() || onCloudflare() || onFastly()) return false;
-  return true;
+  return false;
 }
 
 export function hasHttpCache() {

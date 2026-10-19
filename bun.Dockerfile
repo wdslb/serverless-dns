@@ -2,7 +2,7 @@ FROM oven/bun AS setup
 WORKDIR /bun-dir
 COPY . .
 RUN apt update && apt install wget -y
-RUN bun install
+RUN bun install --verbose --network-concurrency=5
 # flybun --packages=external to ask bun to not resolve @riaskov/mmap-io (which brings in mapbox among other deps)
 RUN bun run build:flybun
 RUN export BLOCKLIST_DOWNLOAD_ONLY=true && bun run ./dist/bun.mjs --smol
