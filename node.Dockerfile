@@ -22,6 +22,11 @@ ENV NODE_ENV production
 ENV NODE_OPTIONS="--max-old-space-size=200 --heapsnapshot-signal=SIGUSR2"
 # get working dir in order
 WORKDIR /app
+
+RUN apk update
+RUN apk upgrade --available
+RUN apk fix
+
 # external deps not bundled by webpack
 # RUN npm i @riaskov/mmap-io@github:ignoramous/mmap-io#7f0925b989eac749ced440e51e616dfff4873ecd
 RUN npm i @riaskov/mmap-io@github:ignoramous/mmap-io#5356ced41818a0a8c3ac7c780bff446ed7bfedf8

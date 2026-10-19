@@ -187,8 +187,8 @@ jobs:
           # tag would be: fromJSON(steps.meta.outputs.json).images[0].tags[0]
           image: "${{ env.REGISTRY }}/${{ env.IMAGE_NAME_BUN }}@${{ steps.push.outputs.digest }}"
           output-file: "${{ github.workspace }}/sarifoutput/cont.sarif"
-          # fail-build: false
-          # severity-cutoff: critical
+          fail-build: false
+          severity-cutoff: critical
 
         # github.com/marketplace/actions/anchore-container-scan
         # github.com/anchore/scan-action

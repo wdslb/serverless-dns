@@ -12,6 +12,11 @@ FROM oven/bun:alpine AS runner
 # and overrides fly.toml env values
 # get working dir in order
 WORKDIR /app
+
+RUN apk update
+RUN apk upgrade --available
+RUN apk fix
+
 COPY --from=setup /bun-dir/dist ./
 COPY --from=setup /bun-dir/blocklists__ ./blocklists__
 COPY --from=setup /bun-dir/dbip__ ./dbip__
